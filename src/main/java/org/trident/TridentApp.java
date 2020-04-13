@@ -10,6 +10,7 @@ import org.trident.control.ActionsMediator;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -31,14 +32,14 @@ public class TridentApp extends JFrame implements ITridentComponentView {
     //This value is only for log
     private static final Class TAG = TridentApp.class;
 
-    public TridentApp getInstance(){
+    public TridentApp getInstance() {
         return SINGLETON;
     }
 
     /**
      * This class should be contains only the JMenu and the action about the JMenu
      */
-    // TODO rename the propriety name the first letter with lower cases, like correctName
+
     private JMenu fileMenu;
     private JMenu editMenu;
     private JMenu settingsMenu;
@@ -47,7 +48,7 @@ public class TridentApp extends JFrame implements ITridentComponentView {
     private JMenu clipMenu;
     private JMenu newSource;
     private JMenu openRecent;
-    private JMenuBar tridentMenuBar; //TODO write the comprensible name
+    private JMenuBar tridentMenuBar;
     private JMenuItem newFile;
     private JMenuItem newWindow;
     private JMenuItem openFile;
@@ -85,10 +86,12 @@ public class TridentApp extends JFrame implements ITridentComponentView {
     private JMenuItem bstrp;
     private JMenuItem pboil;
     private JMenuItem[] recentlyOpened;
-    private JCheckBoxMenuItem wordWrap, autoSave;
+    private JCheckBoxMenuItem wordWrap;
+    private JCheckBoxMenuItem autoSave;
 
     //MainPanel propriety, add this inside the frame
     private TridentMainPanel mainPanel;
+
 
     @Override
     public void initView() {
@@ -119,10 +122,12 @@ public class TridentApp extends JFrame implements ITridentComponentView {
 
     @Override
     public void initActions() {
-
+        //Very simple :) and very professional
+        Action exist = (Action) ActionsMediator.getInstance().getAction(Constant.ACTION_EXIT);
+        exit.setAction(exist);
     }
 
-    private void initMenu(){
+    private void initMenu() {
         // * Menu Bar Setup
         // > File Menu
         fileMenu = new JMenu("File");

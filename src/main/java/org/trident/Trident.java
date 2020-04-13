@@ -64,7 +64,7 @@ public class Trident {
     // * Listener Variable declarations
     private FileMenuListener fml = (FileMenuListener) ActionsMediator.getInstance().getAction(Constant.LISTENER_FILE_MENU);
     private ActionListener eml = ActionsMediator.getInstance().getAction(Constant.LISTENER_EDIT_MENU);
-    private ActionListener sml = ActionsMediator.getInstance().getAction(Constant.LISTENER_SETTIN_MENU);
+    private ActionListener sml = ActionsMediator.getInstance().getAction(Constant.LISTENER_SETTING_MENU);
     private ActionListener tml = ActionsMediator.getInstance().getAction(Constant.LISTENER_TOOLS_MENU);
     private ActionListener aml = ActionsMediator.getInstance().getAction(Constant.LISTENER_ABOUT_MENU);
 
