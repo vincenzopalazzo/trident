@@ -11,7 +11,7 @@
 ## Contributers:
 
  1. [Krishna Moorthy](https://github.com/KrishnaMoorthy12)
- 2. [Vincent Palazzo](https://github.com/vincenzopalazzo) (Architecture design)
+ 2. [Vincent Palazzo](https://github.com/vincenzopalazzo) (Architecture designer)
  3. [Kumaran](https://github.com/Kumaran1508) (Logo designer)
 
 ## License:
