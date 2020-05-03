@@ -3,14 +3,12 @@ package org.trident.view.mainpanel;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
-import org.trident.control.ActionsMediator;
-import org.trident.control.listeners.FileMenuListener;
-import org.trident.util.Constant;
 import org.trident.view.ITridentComponentView;
+import org.trident.view.container.ToolBarButtonsCodeContainer;
+import org.trident.view.container.ToolBarCompilerComponent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 /**
  * @author https://github.com/vincenzopalazzo
@@ -19,6 +17,10 @@ public class TridentMainPanel extends JPanel implements ITridentComponentView {
 
     private RSyntaxTextArea codeEditorText;
     private RTextScrollPane textScrollPane;
+    private JToolBar toolBarEditor;
+    private ToolBarButtonsCodeContainer containerButtonsCode;
+    private ToolBarCompilerComponent containerCompilerInfo;
+    private JTree fileTree;
     private JLabel statusText;
     private JLabel savedStatus;
     private JLabel fileTypeStatus;
@@ -49,11 +51,25 @@ public class TridentMainPanel extends JPanel implements ITridentComponentView {
         this.textScrollPane = new RTextScrollPane(codeEditorText);
 
         this.codeEditorText.setText("print('Hello, welcome in the new trindent')");
+
+        this.toolBarEditor = new JToolBar();
+        toolBarEditor.setLayout(new BorderLayout());
+
+        this.containerButtonsCode = new ToolBarButtonsCodeContainer();
+
+        this.containerCompilerInfo = new ToolBarCompilerComponent();
+
+        this.fileTree = new JTree();
+
+        toolBarEditor.add(containerButtonsCode, BorderLayout.CENTER);
+        toolBarEditor.add(containerCompilerInfo, BorderLayout.EAST);
     }
 
     @Override
     public void initLayout() {
         super.setLayout(new BorderLayout());
+        super.add(this.toolBarEditor, BorderLayout.NORTH);
+        super.add(this.fileTree, BorderLayout.WEST);
     }
 
     @Override

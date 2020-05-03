@@ -1,7 +1,8 @@
 package org.trident;
 
 import mdlaf.MaterialLookAndFeel;
-import org.trident.control.listeners.FileMenuListener;
+import mdlaf.themes.JMarsDarkTheme;
+import mdlaf.themes.MaterialLiteTheme;
 import org.trident.model.RecentsTracker;
 import org.trident.util.Constant;
 import org.trident.view.ITridentComponentView;
@@ -10,7 +11,7 @@ import org.trident.control.ActionsMediator;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import javax.swing.plaf.BorderUIResource;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +22,8 @@ public class TridentApp extends JFrame implements ITridentComponentView {
     static {
         //only for moment
         try {
-            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+            UIManager.setLookAndFeel(new MaterialLookAndFeel(new MaterialLiteTheme()));
+            UIManager.put("ToolBar.rolloverBorder", new BorderUIResource(BorderFactory.createEmptyBorder(5,5,5,5)));
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -32,7 +34,7 @@ public class TridentApp extends JFrame implements ITridentComponentView {
     //This value is only for log
     private static final Class TAG = TridentApp.class;
 
-    public TridentApp getInstance() {
+    public static TridentApp getInstance() {
         return SINGLETON;
     }
 

@@ -2,6 +2,7 @@ package org.trident.control;
 
 import org.trident.control.actions.AboutMenuListener;
 import org.trident.control.actions.ActionExitApp;
+import org.trident.control.actions.ActionNotImplementedYet;
 import org.trident.control.listeners.EditMenuListener;
 import org.trident.control.listeners.FileMenuListener;
 import org.trident.control.listeners.SettingsMenuListener;
@@ -30,6 +31,7 @@ public class ActionsMediator {
 
     private ActionsMediator() {
         actions.put(Constant.ACTION_EXIT, new ActionExitApp());
+        actions.put(Constant.ACTION_NOT_IMPLEMENTED, new ActionNotImplementedYet());
 
         //Need refactoring
         actions.put(Constant.LISTENER_FILE_MENU, new FileMenuListener());
